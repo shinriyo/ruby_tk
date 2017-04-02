@@ -52,22 +52,41 @@ content = Tk::Tile::Frame.new(root) {padding "3 3 12 12"}.grid( :sticky => 'nsew
 TkGrid.columnconfigure root, 0, :weight => 1; TkGrid.rowconfigure root, 0, :weight => 1
 
 # text
-$job = TkVariable.new; $status = TkVariable.new
+$job = TkVariable.new
 $j = Tk::Tile::Entry.new(content) { width 14; textvariable $job}.grid( :column => 1, :row => 1, :sticky => 'we' )
 
+# text2
+$job2 = TkVariable.new
+$j2 = Tk::Tile::Entry.new(content) { width 14; textvariable $job2}.grid( :column => 1, :row => 1, :sticky => 'we' )
+$j2.place('x' => 0, 'y' => 30)
+
+# text3
+$job3 = TkVariable.new
+$j3 = Tk::Tile::Entry.new(content) { width 14; textvariable $job3}.grid( :column => 1, :row => 1, :sticky => 'we' )
+$j3.place('x' => 0, 'y' => 60)
+
+# text4
+$job4 = TkVariable.new
+$j4 = Tk::Tile::Entry.new(content) { width 14; textvariable $job4}.grid( :column => 1, :row => 1, :sticky => 'we' )
+$j4.place('x' => 0, 'y' => 90)
+
 Tk::Tile::Button.new(content) {
-    text 'Find Job'
+    text "変換"
     command {go_do_something}
 }.grid( :column => 2, :row => 1, :sticky => 'w')
 
 def go_do_something()
    # input text
-    print $job
+   # JOSNを整形
+    puts $job
+    puts $job2
+    puts $job3
+    puts $job4
 end
 
 #Buttonも試しにつけてみる
 button = TkButton.new {
-    text "Button"
+    text "閉じる"
     command {
         #overrideredirectの使用例。更に応用して擬似フルスクリーンとかに使用
         root.overrideredirect(!root.overrideredirect).withdraw.deiconify
