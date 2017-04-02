@@ -51,6 +51,11 @@ root.geometry(windowWidth.to_s + "x" + windowHeight.to_s +
 content = Tk::Tile::Frame.new(root) {padding "3 3 12 12"}.grid( :sticky => 'nsew')
 TkGrid.columnconfigure root, 0, :weight => 1; TkGrid.rowconfigure root, 0, :weight => 1
 
+lb = TkLabel.new(nil,
+	                text: 'Hello, World!',
+			            fg: 'green',  ### 文字の色
+				                bg: 'black').pack   ### 背景色
+
 # text
 $job = TkVariable.new
 $j = Tk::Tile::Entry.new(content) { width 14; textvariable $job}.grid( :column => 1, :row => 1, :sticky => 'we' )
